@@ -11,9 +11,12 @@
 </p>
 
 <p>
+  <% unless @blog.image.url.nil? %>
   <strong>Image:</strong>
-  <%= @blog.image %>
+  <%= image_tag @blog.image.url, size: '150x150' %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back', blogs_path %>
